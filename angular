@@ -1,3 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+@Component({
+  selector: 'app-reactive',
+  templateUrl: './reactive.component.html',
+  styleUrls: ['./reactive.component.css']
+})
+export class ReactiveComponent implements OnInit {
+
+    myForm:FormGroup
+    uname:FormControl
+    pass:FormControl
+    email:FormControl
+    city:FormControl
+// establish the relationship
+    createForm(){
+      this.myForm=new FormGroup({
+        uname:this.uname,
+        pass:this.pass,
+        email:this.email,
+        city:this.city
+      })
+    }
+    // create the controls
+    createFormControls(){
+      this.uname= new FormControl('')
+      this.pass= new FormControl('')
+      this.email= new FormControl('')
+      this.city= new FormControl('')
+    }
+
+  constructor() {
+    this.createFormControls()
+    this.createForm()
+   }
+addUser(){
+console.log(this.myForm.value);
+
+}
+  ngOnInit(): void {
+  }
+
+}
+
+
+
+
+
+
+-----
+
+
+
+
 <div class="container">
   <div class="card">
     <div class="card-header text-center">
@@ -5,11 +60,11 @@
     </div>
 
     <div class="card-body">
-      <form>
+      <form [formGroup]='myForm' (ngSubmit)='addUser()'>
       <div class="form-group row">
 
         <label class='col-sm-1 col-form-label'>Username</label>
-        <div class=col-sm-3><input type="text" class="form-control" /></div>
+        <div class=col-sm-3><input type="text" class="form-control" formControlName='uname'/></div>
 
 
 
@@ -17,19 +72,19 @@
 
       <div class="form-group row">
         <label class='col-sm-1 col-form-label'>Password</label>
-        <div class=col-sm-3><input type="password" class="form-control" /></div>
+        <div class=col-sm-3><input type="password" class="form-control" formControlName='pass'/></div>
 
 
         <div class="form-group row">
           <label class='col-sm-1 col-form-label'>Email</label>
-          <div class=col-sm-3><input type="text" class="form-control" /></div>
+          <div class=col-sm-3><input type="text" class="form-control" formControlName='email'/></div>
 
         </div>
 
 
         <div class="form-group row">
           <label class='col-sm-1 col-form-label'>City</label>
-          <div class=col-sm-3><input type="text" class="form-control" /></div>
+          <div class=col-sm-3><input type="text" class="form-control" formControlName='city'/></div>
         </div>
         <br />
 
