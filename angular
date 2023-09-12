@@ -99,3 +99,35 @@ console.log(this.myForm.value);
     </form>
     </div>
   </div>
+
+
+
+Conditional Rendering 
+
+1) property binding 
+2) directive
+3) ngtemplate
+
+----
+
+forms development 
+
+template driven (Template) No reusability
+Data Driven (reactive Forms)
+formbuilder -> reactiveform
+
+Login Form
+username
+password
+
+https://github.com/amarjeet-arora/tiaa-sep/
+
+
+task:
+create a new service : formservice -> addUserToDB ->(log ->user is added to DB)
+create a function in form TS file -> addUser ->and invoke addUserToDB inside it and print the value of console.log on button click
+
+---
+custom validators
+custom pipes
+custom directives 
