@@ -1,44 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Component({
-  selector: 'app-reactive',
-  templateUrl: './reactive.component.html',
-  styleUrls: ['./reactive.component.css']
+@Pipe({
+  name: 'tempConvert'
 })
-export class ReactiveComponent implements OnInit {
+export class TempConvertPipe implements PipeTransform {
 
-    myForm:FormGroup
-    uname:FormControl
-    pass:FormControl
-    email:FormControl
-    city:FormControl
-// establish the relationship
-    createForm(){
-      this.myForm=new FormGroup({
-        uname:this.uname,
-        pass:this.pass,
-        email:this.email,
-        city:this.city
-      })
+  transform(value:number,unit:string) {
+    if(value && !isNaN(value)){
+      if(unit === 'C'){
+        var temp = (value -32)/1.8
+        return temp.toFixed(2)
+      }else if(unit === 'F'){
+        var temp=(value *1.8)+32
+        return temp.toFixed(2)
+      }
     }
-    // create the controls
-    createFormControls(){
-      this.uname= new FormControl('')
-      this.pass= new FormControl('')
-      this.email= new FormControl('')
-      this.city= new FormControl('')
-    }
-
-  constructor() {
-    this.createFormControls()
-    this.createForm()
-   }
-addUser(){
-console.log(this.myForm.value);
-
-}
-  ngOnInit(): void {
+    return null;
   }
 
 }
@@ -47,87 +24,37 @@ console.log(this.myForm.value);
 
 
 
+<p>Pipe Demo</p>
 
------
+<ul>
+  <li>{{userdata.uname | uppercase}}</li>
+  <li>{{userdata.income | currency: 'INR' : false}}</li>
+  <li>{{userdata.rating | number }}</li>
+  <li>{{userdata.DOJ | date : 'MM/yy'}}</li>
+  <li>{{userdata | json}}</li>
+  <li>{{userdata.details | summary:20}}</li>
+</ul>
+<div  class='container'>
+<div class="card">
+<div class="card-header">
+  <p>Pipe App</p>
 
+</div>
+<div class="row">
+  <h3>F TO C </h3>
 
+</div>
+<div class="row">
+  <p>Fah : <input type='text' [(ngModel)]='fah'/>
+  Cel :{{fah | tempConvert:'C'}}</p>
+</div>
+<div class="row">
+  <h3>C TO F </h3>
 
-
-<div class="container">
-  <div class="card">
-    <div class="card-header text-center">
-      <h3>User Registration Form</h3>
-    </div>
-
-    <div class="card-body">
-      <form [formGroup]='myForm' (ngSubmit)='addUser()'>
-      <div class="form-group row">
-
-        <label class='col-sm-1 col-form-label'>Username</label>
-        <div class=col-sm-3><input type="text" class="form-control" formControlName='uname'/></div>
-
-
-
-      </div>
-
-      <div class="form-group row">
-        <label class='col-sm-1 col-form-label'>Password</label>
-        <div class=col-sm-3><input type="password" class="form-control" formControlName='pass'/></div>
-
-
-        <div class="form-group row">
-          <label class='col-sm-1 col-form-label'>Email</label>
-          <div class=col-sm-3><input type="text" class="form-control" formControlName='email'/></div>
-
-        </div>
-
-
-        <div class="form-group row">
-          <label class='col-sm-1 col-form-label'>City</label>
-          <div class=col-sm-3><input type="text" class="form-control" formControlName='city'/></div>
-        </div>
-        <br />
-
-
-
-
-      </div>
-      <button class='btn btn-success'>Register</button> | <button type="reset" class='btn btn-primary'>Cancel</button>
-      <div class="card-footer text-body-secondary text-center">
-        @ copyright Tiaa.com
-      </div>
-    </form>
-    </div>
-  </div>
-
-
-
-Conditional Rendering 
-
-1) property binding 
-2) directive
-3) ngtemplate
-
-----
-
-forms development 
-
-template driven (Template) No reusability
-Data Driven (reactive Forms)
-formbuilder -> reactiveform
-
-Login Form
-username
-password
-
-https://github.com/amarjeet-arora/tiaa-sep/
-
-
-task:
-create a new service : formservice -> addUserToDB ->(log ->user is added to DB)
-create a function in form TS file -> addUser ->and invoke addUserToDB inside it and print the value of console.log on button click
-
----
-custom validators
-custom pipes
-custom directives 
+</div>
+<div class="row">
+  <p>CEL : <input type='text' [(ngModel)]='cel'/>
+  FAH :{{cel | tempConvert:'F'}}</p>
+</div>
+</div>
+</div>
