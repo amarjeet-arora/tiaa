@@ -1,21 +1,22 @@
+<h3>User Details</h3>
 
-<div class="container">
-<nav class="navbar" style="background-color: #e3f2fd;">
 
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="#">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Register</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">UserDetails</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Portfolio</a>
-  </li>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
 
-</nav>
-</div>
+      <th scope="col">UserName</th>
+      <th scope="col">Email</th>
+      <th scope="col">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let ud of usersData'>
+
+      <td> {{ud.uname}} </td>
+      <td>{{ud.email}} </td>
+      <td>{{ud.city}}</td>
+    </tr>
+
+  </tbody>
+</table>
