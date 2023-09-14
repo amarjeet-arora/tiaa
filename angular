@@ -1,60 +1,21 @@
-import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'tempConvert'
-})
-export class TempConvertPipe implements PipeTransform {
+<div class="container">
+<nav class="navbar" style="background-color: #e3f2fd;">
 
-  transform(value:number,unit:string) {
-    if(value && !isNaN(value)){
-      if(unit === 'C'){
-        var temp = (value -32)/1.8
-        return temp.toFixed(2)
-      }else if(unit === 'F'){
-        var temp=(value *1.8)+32
-        return temp.toFixed(2)
-      }
-    }
-    return null;
-  }
-
-}
-
-
-
-
-
-<p>Pipe Demo</p>
-
-<ul>
-  <li>{{userdata.uname | uppercase}}</li>
-  <li>{{userdata.income | currency: 'INR' : false}}</li>
-  <li>{{userdata.rating | number }}</li>
-  <li>{{userdata.DOJ | date : 'MM/yy'}}</li>
-  <li>{{userdata | json}}</li>
-  <li>{{userdata.details | summary:20}}</li>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="#">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">UserDetails</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Portfolio</a>
+  </li>
 </ul>
-<div  class='container'>
-<div class="card">
-<div class="card-header">
-  <p>Pipe App</p>
 
-</div>
-<div class="row">
-  <h3>F TO C </h3>
-
-</div>
-<div class="row">
-  <p>Fah : <input type='text' [(ngModel)]='fah'/>
-  Cel :{{fah | tempConvert:'C'}}</p>
-</div>
-<div class="row">
-  <h3>C TO F </h3>
-
-</div>
-<div class="row">
-  <p>CEL : <input type='text' [(ngModel)]='cel'/>
-  FAH :{{cel | tempConvert:'F'}}</p>
-</div>
-</div>
+</nav>
 </div>
