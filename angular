@@ -1,7 +1,4 @@
-it('should use the user name from the service', () => {
-    let fixture = TestBed.createComponent(UserComponent);
-    let app = fixture.debugElement.componentInstance;
-    let userService = fixture.debugElement.injector.get(UserService);
-    fixture.detectChanges();
-    expect(userService.user.name).toEqual(app.user.name);
-  });
+amarjeet.arora@asreet-tech.com
+9552894129
+
+connects@asreet-tech.com
