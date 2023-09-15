@@ -1,28 +1,4 @@
-<header>
-  <div class="navbar navbar-dark bg-primary shadow-sm">
-    <div class="navbar-brand align-item-center d-flex">
-    <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp;</i>
-    <strong>ShopApp</strong>
-    <div class="form-group">
-      <input type='text' class="form-control" placeholder="Search Products....!"/>
-    </div>
-    <span class="fas fa-search search-icon"></span>
-  </div>
-  </div>
-</header>
-
-
-
-.form-control{
-  border-radius: 3px;
-  width: 600px;
-  margin-left: 20px;
-}
-.search-icon
-{
-  position: absolute;
-  z-index: 10;
-  right: 50%;
-  top: 20px;
-  color:blue;
-}
+  <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+<img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+ <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
+ <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
